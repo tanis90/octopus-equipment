@@ -1,0 +1,26 @@
+{
+  "skills": [
+    {
+      "slug": "firearms-smg",
+      "name": "射击（冲锋枪）",
+      "enName": "Firearms (SMG)",
+      "brpid": "i.skill.coc.firearms-smg",
+      "base": 15,
+      "parentKey": "firearms",
+      "specKey": "smg",
+      "description": "使用冲锋枪或全自动手枪进行射击。",
+      "sourceRefs": ["coc7-keeper-cn-secondary"]
+    },
+    {
+      "slug": "firearms-mg",
+      "name": "射击（机枪）",
+      "enName": "Firearms (Machine Gun)",
+      "brpid": "i.skill.coc.firearms-mg",
+      "base": 10,
+      "parentKey": "firearms",
+      "specKey": "mg",
+      "description": "使用以两脚架、三脚架或枪架支撑的机枪进行连续射击。",
+      "sourceRefs": ["coc7-keeper-cn-secondary"]
+    }
+  ]
+}

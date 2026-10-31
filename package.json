@@ -1,0 +1,15 @@
+{
+  "name": "octopus-equipment",
+  "version": "0.1.0",
+  "private": false,
+  "description": "章鱼装备研究会：章鱼料理研究会（brp）的非官方武器、战斗技能与护甲扩展。",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node test.mjs"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "license": "MIT"
+}

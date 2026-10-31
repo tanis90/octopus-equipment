@@ -1,0 +1,49 @@
+{
+  "armour": [
+    {
+      "slug": "heavy-leather-jacket",
+      "name": "厚皮夹克",
+      "enName": "Heavy Leather Jacket",
+      "av1": 1,
+      "coverage": "躯干与手臂",
+      "description": "常见而低调的轻型防护，只能提供有限的保护。",
+      "sourceRefs": ["coc7-keeper-cn-secondary"]
+    },
+    {
+      "slug": "wwi-helmet",
+      "name": "一战标准钢盔",
+      "enName": "WWI Helmet",
+      "av1": 2,
+      "coverage": "头部",
+      "description": "第一次世界大战时期的钢制头盔，仅保护头部。",
+      "sourceRefs": ["coc7-keeper-cn-secondary"]
+    },
+    {
+      "slug": "modern-us-helmet",
+      "name": "现代军用头盔",
+      "enName": "Present U.S. Helmet",
+      "av1": 5,
+      "coverage": "头部",
+      "description": "现代军用防护头盔，仅保护头部。",
+      "sourceRefs": ["coc7-keeper-cn-secondary"]
+    },
+    {
+      "slug": "heavy-kevlar-vest",
+      "name": "重型凯夫拉防弹背心",
+      "enName": "Heavy Kevlar Vest",
+      "av1": 8,
+      "coverage": "躯干",
+      "description": "现代军警使用的重型软质防弹背心。",
+      "sourceRefs": ["coc7-keeper-cn-secondary"]
+    },
+    {
+      "slug": "military-body-armour",
+      "name": "军用全身防弹护甲",
+      "enName": "Military Body Armor",
+      "av1": 12,
+      "coverage": "躯干及四肢",
+      "description": "现代重型军用防弹护甲，获取与使用通常受剧情限制。",
+      "sourceRefs": ["coc7-keeper-cn-secondary"]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "sources": {
+    "coc7-official-weapons": {
+      "title": "The Call of Cthulhu RPG Wiki — Ammunition & Weapons",
+      "url": "https://cthulhuwiki.chaosium.com/equipment/weapons.html",
+      "usage": "武器名称、技能类别、伤害、射程、攻击次数、弹容量、1920年代价格与故障值等公开事实。"
+    },
+    "coc7-official-combat": {
+      "title": "The Call of Cthulhu RPG Wiki — Combat",
+      "url": "https://cthulhuwiki.chaosium.com/rules/combat.html",
+      "usage": "战斗字段语义与伤害加值口径。"
+    },
+    "coc7-keeper-cn-secondary": {
+      "title": "CoC 7版中文守秘人规则书（二手译本文本）",
+      "url": "https://www.cthulhuclub.com/wp-content/uploads/2021/04/call-of-cthulhu-keeper-rulebook-cn-Version2002c.pdf",
+      "evidence": "secondary",
+      "usage": "冲锋枪/机枪基础值与护甲值的二手事实核对；不声称官方一手公开来源。"
+    }
+  },
+  "boundaries": [
+    "仅使用数值、名称、公式和字段语义；中文物品描述均为本项目自写。",
+    "不复制官方规则文本、PDF、图片、图标、字体、排版或任何 GPL/禁用系统数据。",
+    "现有系统尚未完整实现火器贯穿、全自动、射程难度、瞄准镜与护甲伤害减免；内容包不宣称补齐这些规则。"
+  ]
+}

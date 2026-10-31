@@ -1,0 +1,34 @@
+{
+  "id": "octopus-equipment",
+  "title": "章鱼装备研究会",
+  "description": "章鱼料理研究会（brp）的非官方武器、战斗技能与护甲扩展，兼容 CoC 7版。",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351",
+    "maximum": "13"
+  },
+  "packs": [
+    {
+      "name": "coc-weapons",
+      "label": "章鱼 · 武器",
+      "path": "packs/coc-weapons",
+      "type": "Item",
+      "system": "brp"
+    },
+    {
+      "name": "coc-weapon-skills",
+      "label": "章鱼 · 战斗技能",
+      "path": "packs/coc-weapon-skills",
+      "type": "Item",
+      "system": "brp"
+    },
+    {
+      "name": "coc-armour",
+      "label": "章鱼 · 护甲",
+      "path": "packs/coc-armour",
+      "type": "Item",
+      "system": "brp"
+    }
+  ]
+}
