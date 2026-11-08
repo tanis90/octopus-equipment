@@ -2,8 +2,8 @@ import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { makeWal, makeWriteBatch, makeZip } from "./tools/fvtt-module-writer.mjs";
-import { parseFormula } from "./tools/coc-dice.mjs";
+import { makeWal, makeWriteBatch, makeZip } from "./lib/fvtt-module-writer.mjs";
+import { parseFormula } from "./lib/coc-dice.mjs";
 
 export const PACK_ROOT = dirname(fileURLToPath(import.meta.url));
 const readJson = (path) => JSON.parse(readFileSync(join(PACK_ROOT, path), "utf8"));
@@ -103,8 +103,45 @@ function commonFlags(entry, type) {
   };
 }
 
+// FVTT CoC / BRP 原生 Item.weapon 的 properties 全键（顺序照 template.json）。
+const WEAPON_PROPERTY_KEYS = Object.freeze([
+  "rngd", "mnvr", "thrown", "shotgun", "dbrl", "impl", "brst", "auto", "ahdb", "addb",
+  "slnt", "spcl", "mont", "blst", "stun", "rare", "burn",
+]);
+
+// 扁形事实源 → 原生嵌套。规则层 weaponProfile 只读嵌套（properties.impl/rngd/thrown/
+// addb/ahdb、range.*、usesPerRound.normal、malfunction），扁形字段一律只作镜像留给旧卡面。
+function weaponProperties(entry) {
+  const base = Object.fromEntries(WEAPON_PROPERTY_KEYS.map((key) => [key, false]));
+  return {
+    ...base,
+    // 火器 = 远程；投掷类（missile）按原生 thrown 归到 missile 种类，DB 半档。
+    rngd: entry.weaponType === "firearm",
+    thrown: entry.weaponType === "missile",
+    impl: entry.special === "impale",
+    ahdb: entry.db === "half",
+    addb: entry.db === "full",
+    // burning-torch 的「着火」在原生形状里是 burn 属性（CoC 卡面 properties.burn）。
+    burn: entry.fire === true,
+  };
+}
+
+function weaponRange(entry) {
+  const ranges = entry.ranges ?? ["S"];
+  const bands = ["normal", "long", "extreme"];
+  const out = {};
+  for (const [index, band] of bands.entries()) {
+    out[band] = {
+      value: String(ranges[index] ?? ""),
+      damage: String(entry.damage[index] ?? ""),
+    };
+  }
+  return out;
+}
+
 function weaponDoc(entry, manifest, icons) {
   const ranges = entry.ranges ?? ["S"];
+  const ammo = entry.ammo ?? 0;
   return {
     _id: docId(`weapon-${entry.slug}`),
     name: entry.name,
@@ -112,7 +149,28 @@ function weaponDoc(entry, manifest, icons) {
     img: `modules/${manifest.id}/icons/${icons[entry.slug]}`,
     flags: commonFlags(entry, "weapon"),
     system: {
-      description: entry.description,
+      // —— 原生嵌套（template.json Item.weapon；规则层与 CoC 卡面的唯一读取面）——
+      range: weaponRange(entry),
+      // 原生 skill.main/alternativ 存角色身上技能 Item 的 id/name，包内无法预知，保持空；
+      // 命中技能的身份仍由下面的 skill1/skill2 brpid 承载（check.mjs weaponSkill()）。
+      skill: {
+        main: { name: "", id: "" },
+        alternativ: { name: "", id: "" },
+      },
+      description: {
+        value: entry.description,
+        special: entry.special,
+        keeper: "",
+      },
+      usesPerRound: { normal: String(entry.att), max: null, burst: null },
+      bullets: ammo > 0 ? ammo : null,
+      ammo,
+      malfunction: entry.mal ?? 0,
+      blastRadius: null,
+      properties: weaponProperties(entry),
+      // 价格沿用扁形选择键（旧卡面/原生武器卡读 system.price 作 i18n 键）；模板默认 {} 不采纳。
+      price: "",
+      // —— 扁形镜像（旧卡面 npcV2/character、旧宏与 weaponSkill 读；嵌套为准）——
       gmDescription: "",
       weaponType: entry.weaponType,
       skill1: entry.skill1,
@@ -130,13 +188,11 @@ function weaponDoc(entry, manifest, icons) {
       parry: entry.weaponType === "melee",
       fire: entry.fire === true,
       ammoType: entry.ammoType ?? "",
-      ammo: entry.ammo ?? 0,
-      ammoCurr: entry.ammo ?? 0,
+      ammoCurr: ammo,
       mal: entry.mal ?? 0,
       rof: entry.attacksText,
       quantity: 1,
       enc: 0,
-      price: "",
       cost: entry.cost ?? 0,
       equipStatus: "carried",
       npcVal: 0,
@@ -149,6 +205,43 @@ function weaponDoc(entry, manifest, icons) {
       pSMax: 0,
     },
   };
+}
+
+// 构建期自检：嵌套为规则唯一读取面，镜像必须逐字段同步；任何一处漂移都直接炸构建。
+function validateWeaponDocuments(documents, entries) {
+  const errors = [];
+  const bySlug = new Map(entries.map((entry) => [entry.slug, entry]));
+  for (const doc of documents) {
+    const system = doc.system;
+    const where = `weapon/${doc.flags?.brp?.coc?.key ?? doc.name}`;
+    const entry = bySlug.get(doc.flags?.brp?.coc?.key);
+    assert(entry, `${where}: 源条目缺席（slug 不一致）`, errors);
+    if (entry) {
+      assert(system.description.value === entry.description, `${where}: description.value 与源描述不一致`, errors);
+      assert(system.skill1 === entry.skill1, `${where}: skill1 与源条目不一致`, errors);
+      assert(system.weaponType === entry.weaponType, `${where}: weaponType 与源条目不一致`, errors);
+    }
+    assert(system.range && system.properties && system.usesPerRound, `${where}: 缺原生嵌套块`, errors);
+    assert(system.properties.impl === (system.special === "impale"), `${where}: impl 与 special 不一致`, errors);
+    assert(system.properties.rngd === (system.weaponType === "firearm"), `${where}: rngd 与 weaponType 不一致`, errors);
+    assert(system.properties.thrown === (system.weaponType === "missile"), `${where}: thrown 与 weaponType 不一致`, errors);
+    assert(system.properties.addb === (system.db === "full"), `${where}: addb 与 db 不一致`, errors);
+    assert(system.properties.ahdb === (system.db === "half"), `${where}: ahdb 与 db 不一致`, errors);
+    assert(!(system.properties.addb === true && system.properties.ahdb === true), `${where}: addb/ahdb 同时生效`, errors);
+    for (const [index, band] of ["normal", "long", "extreme"].entries()) {
+      assert(system.range[band].damage === [system.dmg1, system.dmg2, system.dmg3][index], `${where}: range.${band}.damage 镜像漂移`, errors);
+      assert(system.range[band].value === [system.range1, system.range2, system.range3][index], `${where}: range.${band}.value 镜像漂移`, errors);
+    }
+    assert(String(system.usesPerRound.normal) === String(system.att), `${where}: usesPerRound 镜像漂移`, errors);
+    assert(system.malfunction === system.mal, `${where}: malfunction 镜像漂移`, errors);
+    assert(system.description.special === system.special, `${where}: description.special 镜像漂移`, errors);
+    assert(String(system.skill1).startsWith("i.skill.coc."), `${where}: skill1 不是 CoC brpid`, errors);
+    assert(system.skill2 === "none", `${where}: skill2 应为 none`, errors);
+    assert(doc.flags?.brp?.coc?.weapon === undefined, `${where}: 不应写 flags.brp.coc.weapon marker`, errors);
+    if (system.bullets !== null) assert(system.bullets === system.ammoCurr, `${where}: bullets 镜像漂移`, errors);
+    if (system.weaponType === "firearm") assert(system.malfunction > 0, `${where}: 火器 malfunction 为 0`, errors);
+  }
+  if (errors.length) throw new Error(`武器原生形状自检失败 ${errors.length} 条：\n${errors.map((error) => `- ${error}`).join("\n")}`);
 }
 
 function skillDoc(entry, manifest, icons) {
@@ -240,11 +333,13 @@ export function loadSources() {
 }
 
 export function createDocuments(sources = loadSources()) {
-  return {
+  const documents = {
     "coc-weapons": sources.weapons.map((entry) => weaponDoc(entry, sources.manifest, sources.icons)),
     "coc-weapon-skills": sources.skills.map((entry) => skillDoc(entry, sources.manifest, sources.icons)),
     "coc-armour": sources.armour.map((entry) => armourDoc(entry, sources.manifest, sources.icons)),
   };
+  validateWeaponDocuments(documents["coc-weapons"], sources.weapons);
+  return documents;
 }
 
 export function buildEquipmentPack(sources = loadSources()) {

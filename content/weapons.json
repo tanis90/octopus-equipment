@@ -6,7 +6,9 @@
       "enName": "Brass Knuckles",
       "weaponType": "melee",
       "skill1": "i.skill.coc.fighting-brawl",
-      "damage": ["1D3+1"],
+      "damage": [
+        "1D3+1"
+      ],
       "db": "full",
       "special": "none",
       "att": 1,
@@ -20,7 +22,9 @@
       "enName": "Burning Torch",
       "weaponType": "melee",
       "skill1": "i.skill.coc.fighting-brawl",
-      "damage": ["1D6"],
+      "damage": [
+        "1D6"
+      ],
       "db": "full",
       "special": "none",
       "att": 1,
@@ -35,7 +39,9 @@
       "enName": "Blackjack (Cosh, life-preserver)",
       "weaponType": "melee",
       "skill1": "i.skill.coc.fighting-brawl",
-      "damage": ["1D8"],
+      "damage": [
+        "1D8"
+      ],
       "db": "full",
       "special": "none",
       "att": 1,
@@ -49,7 +55,9 @@
       "enName": "Club, large (baseball, cricket bat, poker)",
       "weaponType": "melee",
       "skill1": "i.skill.coc.fighting-brawl",
-      "damage": ["1D8"],
+      "damage": [
+        "1D8"
+      ],
       "db": "full",
       "special": "none",
       "att": 1,
@@ -63,7 +71,9 @@
       "enName": "Club, small (nightstick)",
       "weaponType": "melee",
       "skill1": "i.skill.coc.fighting-brawl",
-      "damage": ["1D6"],
+      "damage": [
+        "1D6"
+      ],
       "db": "full",
       "special": "none",
       "att": 1,
@@ -77,7 +87,9 @@
       "enName": "Knife, Large (machete, etc.)",
       "weaponType": "melee",
       "skill1": "i.skill.coc.fighting-brawl",
-      "damage": ["1D8"],
+      "damage": [
+        "1D8"
+      ],
       "db": "full",
       "special": "impale",
       "att": 1,
@@ -91,7 +103,9 @@
       "enName": "Knife, Medium (carving knife, etc.)",
       "weaponType": "melee",
       "skill1": "i.skill.coc.fighting-brawl",
-      "damage": ["1D4+2"],
+      "damage": [
+        "1D4+2"
+      ],
       "db": "full",
       "special": "impale",
       "att": 1,
@@ -105,7 +119,9 @@
       "enName": "Knife, Small (switchblade, etc.)",
       "weaponType": "melee",
       "skill1": "i.skill.coc.fighting-brawl",
-      "damage": ["1D4"],
+      "damage": [
+        "1D4"
+      ],
       "db": "full",
       "special": "impale",
       "att": 1,
@@ -119,8 +135,12 @@
       "enName": "Rock, Thrown",
       "weaponType": "missile",
       "skill1": "i.skill.coc.throw",
-      "damage": ["1D4"],
-      "ranges": ["STR/5"],
+      "damage": [
+        "1D4"
+      ],
+      "ranges": [
+        "STR/5"
+      ],
       "db": "half",
       "special": "none",
       "att": 1,
@@ -134,8 +154,12 @@
       "enName": "Shuriken",
       "weaponType": "missile",
       "skill1": "i.skill.coc.throw",
-      "damage": ["1D3"],
-      "ranges": ["STR/5"],
+      "damage": [
+        "1D3"
+      ],
+      "ranges": [
+        "STR/5"
+      ],
       "db": "half",
       "special": "impale",
       "att": 2,
@@ -150,8 +174,12 @@
       "enName": ".22 Short Automatic",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-handgun",
-      "damage": ["1D6"],
-      "ranges": ["10"],
+      "damage": [
+        "1D6"
+      ],
+      "ranges": [
+        "10"
+      ],
       "db": "none",
       "special": "impale",
       "att": 3,
@@ -169,8 +197,12 @@
       "enName": ".25 Derringer (1B)",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-handgun",
-      "damage": ["1D6"],
-      "ranges": ["3"],
+      "damage": [
+        "1D6"
+      ],
+      "ranges": [
+        "3"
+      ],
       "db": "none",
       "special": "impale",
       "att": 1,
@@ -188,8 +220,12 @@
       "enName": ".32 or 7.65mm Revolver",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-handgun",
-      "damage": ["1D8"],
-      "ranges": ["15"],
+      "damage": [
+        "1D8"
+      ],
+      "ranges": [
+        "15"
+      ],
       "db": "none",
       "special": "impale",
       "att": 3,
@@ -207,8 +243,12 @@
       "enName": ".32 or 7.65mm Automatic",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-handgun",
-      "damage": ["1D8"],
-      "ranges": ["15"],
+      "damage": [
+        "1D8"
+      ],
+      "ranges": [
+        "15"
+      ],
       "db": "none",
       "special": "impale",
       "att": 3,
@@ -226,8 +266,12 @@
       "enName": "Model P08 Luger",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-handgun",
-      "damage": ["1D10"],
-      "ranges": ["15"],
+      "damage": [
+        "1D10"
+      ],
+      "ranges": [
+        "15"
+      ],
       "db": "none",
       "special": "impale",
       "att": 3,
@@ -245,8 +289,12 @@
       "enName": ".45 Revolver",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-handgun",
-      "damage": ["1D10+2"],
-      "ranges": ["15"],
+      "damage": [
+        "1D10+2"
+      ],
+      "ranges": [
+        "15"
+      ],
       "db": "none",
       "special": "impale",
       "att": 3,
@@ -264,8 +312,12 @@
       "enName": ".45 Automatic",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-handgun",
-      "damage": ["1D10+2"],
-      "ranges": ["15"],
+      "damage": [
+        "1D10+2"
+      ],
+      "ranges": [
+        "15"
+      ],
       "db": "none",
       "special": "impale",
       "att": 3,
@@ -283,8 +335,12 @@
       "enName": ".22 Bolt-Action Rifle",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-rifle-shotgun",
-      "damage": ["1D6+1"],
-      "ranges": ["30"],
+      "damage": [
+        "1D6+1"
+      ],
+      "ranges": [
+        "30"
+      ],
       "db": "none",
       "special": "impale",
       "att": 1,
@@ -302,8 +358,12 @@
       "enName": ".30 Lever-Action Carbine",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-rifle-shotgun",
-      "damage": ["2D6"],
-      "ranges": ["50"],
+      "damage": [
+        "2D6"
+      ],
+      "ranges": [
+        "50"
+      ],
       "db": "none",
       "special": "impale",
       "att": 1,
@@ -321,8 +381,12 @@
       "enName": ".45 Martini-Henry Rifle",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-rifle-shotgun",
-      "damage": ["1D8+1D6+3"],
-      "ranges": ["80"],
+      "damage": [
+        "1D8+1D6+3"
+      ],
+      "ranges": [
+        "80"
+      ],
       "db": "none",
       "special": "impale",
       "att": 1,
@@ -340,8 +404,12 @@
       "enName": "Col. Moran's Air Rifle",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-rifle-shotgun",
-      "damage": ["2D6+1"],
-      "ranges": ["20"],
+      "damage": [
+        "2D6+1"
+      ],
+      "ranges": [
+        "20"
+      ],
       "db": "none",
       "special": "impale",
       "att": 1,
@@ -359,8 +427,12 @@
       "enName": ".303 Lee-Enfield",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-rifle-shotgun",
-      "damage": ["2D6+4"],
-      "ranges": ["110"],
+      "damage": [
+        "2D6+4"
+      ],
+      "ranges": [
+        "110"
+      ],
       "db": "none",
       "special": "impale",
       "att": 1,
@@ -378,8 +450,12 @@
       "enName": ".30-06 Bolt-Action Rifle",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-rifle-shotgun",
-      "damage": ["2D6+4"],
-      "ranges": ["110"],
+      "damage": [
+        "2D6+4"
+      ],
+      "ranges": [
+        "110"
+      ],
       "db": "none",
       "special": "impale",
       "att": 1,
@@ -397,8 +473,12 @@
       "enName": "Elephant Gun (2B)",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-rifle-shotgun",
-      "damage": ["3D6+4"],
-      "ranges": ["100"],
+      "damage": [
+        "3D6+4"
+      ],
+      "ranges": [
+        "100"
+      ],
       "db": "none",
       "special": "impale",
       "att": 2,
@@ -416,8 +496,16 @@
       "enName": "20-gauge Shotgun (2B)",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-rifle-shotgun",
-      "damage": ["2D6", "1D6", "1D3"],
-      "ranges": ["10", "20", "50"],
+      "damage": [
+        "2D6",
+        "1D6",
+        "1D3"
+      ],
+      "ranges": [
+        "10",
+        "20",
+        "50"
+      ],
       "db": "none",
       "special": "none",
       "att": 2,
@@ -435,8 +523,16 @@
       "enName": "16-gauge Shotgun (2B)",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-rifle-shotgun",
-      "damage": ["2D6+2", "1D6+1", "1D4"],
-      "ranges": ["10", "20", "50"],
+      "damage": [
+        "2D6+2",
+        "1D6+1",
+        "1D4"
+      ],
+      "ranges": [
+        "10",
+        "20",
+        "50"
+      ],
       "db": "none",
       "special": "none",
       "att": 2,
@@ -454,8 +550,16 @@
       "enName": "12-gauge Shotgun (2B)",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-rifle-shotgun",
-      "damage": ["4D6", "2D6", "1D6"],
-      "ranges": ["10", "20", "50"],
+      "damage": [
+        "4D6",
+        "2D6",
+        "1D6"
+      ],
+      "ranges": [
+        "10",
+        "20",
+        "50"
+      ],
       "db": "none",
       "special": "none",
       "att": 2,
@@ -468,13 +572,48 @@
       "description": "常见双管霰弹枪，近距离具有很高的伤害。"
     },
     {
+      "slug": "shotgun-12-double-slug",
+      "name": "12号霰弹枪独头弹",
+      "enName": "12ga Shotgun Slug",
+      "weaponType": "firearm",
+      "skill1": "i.skill.coc.firearms-rifle-shotgun",
+      "damage": [
+        "2D6+2",
+        "2D6+2",
+        "1D10+2"
+      ],
+      "ranges": [
+        "10",
+        "20",
+        "40"
+      ],
+      "db": "none",
+      "special": "impale",
+      "att": 2,
+      "attacksText": "1 or 2",
+      "hands": "2H",
+      "ammoType": "12-gauge",
+      "ammo": 2,
+      "mal": 100,
+      "cost": 40,
+      "description": "霰弹枪独头弹（slug）：单枚实心弹丸，可贯穿（极难成功触发贯穿伤害），伤害与射程按独头弹口径。"
+    },
+    {
       "slug": "shotgun-12-semi-auto",
       "name": "12号半自动霰弹枪",
       "enName": "12-gauge Shotgun (semi-auto)",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-rifle-shotgun",
-      "damage": ["4D6", "2D6", "1D6"],
-      "ranges": ["10", "20", "50"],
+      "damage": [
+        "4D6",
+        "2D6",
+        "1D6"
+      ],
+      "ranges": [
+        "10",
+        "20",
+        "50"
+      ],
       "db": "none",
       "special": "none",
       "att": 2,
@@ -492,8 +631,14 @@
       "enName": "12-gauge Shotgun (2B sawed off)",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-rifle-shotgun",
-      "damage": ["4D6", "1D6"],
-      "ranges": ["5", "10"],
+      "damage": [
+        "4D6",
+        "1D6"
+      ],
+      "ranges": [
+        "5",
+        "10"
+      ],
       "db": "none",
       "special": "none",
       "att": 2,
@@ -511,8 +656,12 @@
       "enName": "Bergmann MP18/MP28",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-smg",
-      "damage": ["1D10"],
-      "ranges": ["20"],
+      "damage": [
+        "1D10"
+      ],
+      "ranges": [
+        "20"
+      ],
       "db": "none",
       "special": "impale",
       "att": 2,
@@ -520,7 +669,11 @@
       "hands": "2H",
       "ammoType": "9mm Parabellum",
       "ammo": 32,
-      "ammoOptions": [20, 30, 32],
+      "ammoOptions": [
+        20,
+        30,
+        32
+      ],
       "mal": 96,
       "cost": 1000,
       "description": "可使用20／30／32发供弹具的早期冲锋枪，全自动规则由系统另行处理。"
@@ -531,8 +684,12 @@
       "enName": "Thompson",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-smg",
-      "damage": ["1D10+2"],
-      "ranges": ["20"],
+      "damage": [
+        "1D10+2"
+      ],
+      "ranges": [
+        "20"
+      ],
       "db": "none",
       "special": "impale",
       "att": 1,
@@ -540,7 +697,11 @@
       "hands": "2H",
       "ammoType": ".45",
       "ammo": 50,
-      "ammoOptions": [20, 30, 50],
+      "ammoOptions": [
+        20,
+        30,
+        50
+      ],
       "mal": 96,
       "cost": 200,
       "description": "可使用20／30／50发供弹具的冲锋枪，表列为1920年代黑市起价。"
@@ -551,8 +712,12 @@
       "enName": "Browning Automatic Rifle M1918",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-mg",
-      "damage": ["2D6+4"],
-      "ranges": ["90"],
+      "damage": [
+        "2D6+4"
+      ],
+      "ranges": [
+        "90"
+      ],
       "db": "none",
       "special": "impale",
       "att": 2,
@@ -570,8 +735,12 @@
       "enName": ".30 Browning M1917A1",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-mg",
-      "damage": ["2D6+4"],
-      "ranges": ["150"],
+      "damage": [
+        "2D6+4"
+      ],
+      "ranges": [
+        "150"
+      ],
       "db": "none",
       "special": "impale",
       "att": 1,
@@ -589,8 +758,12 @@
       "enName": "Bren Gun",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-mg",
-      "damage": ["2D6+4"],
-      "ranges": ["110"],
+      "damage": [
+        "2D6+4"
+      ],
+      "ranges": [
+        "110"
+      ],
       "db": "none",
       "special": "impale",
       "att": 1,
@@ -598,7 +771,10 @@
       "hands": "2H",
       "ammoType": ".303",
       "ammo": 100,
-      "ammoOptions": [30, 100],
+      "ammoOptions": [
+        30,
+        100
+      ],
       "mal": 96,
       "cost": 3000,
       "description": "使用30发弹匣或100发弹鼓的军用机枪。"
@@ -609,8 +785,12 @@
       "enName": "Mark I Lewis Gun",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-mg",
-      "damage": ["2D6+4"],
-      "ranges": ["110"],
+      "damage": [
+        "2D6+4"
+      ],
+      "ranges": [
+        "110"
+      ],
       "db": "none",
       "special": "impale",
       "att": 1,
@@ -618,7 +798,10 @@
       "hands": "2H",
       "ammoType": ".303",
       "ammo": 97,
-      "ammoOptions": [47, 97],
+      "ammoOptions": [
+        47,
+        97
+      ],
       "mal": 96,
       "cost": 3000,
       "description": "使用47或97发弹盘的早期军用机枪。"
@@ -629,8 +812,12 @@
       "enName": "Vickers .303 Machine Gun",
       "weaponType": "firearm",
       "skill1": "i.skill.coc.firearms-mg",
-      "damage": ["2D6+4"],
-      "ranges": ["110"],
+      "damage": [
+        "2D6+4"
+      ],
+      "ranges": [
+        "110"
+      ],
       "db": "none",
       "special": "impale",
       "att": 1,
